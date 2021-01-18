@@ -10,11 +10,8 @@ Feature: Blog
 	## Reject/accept a post, by selecting the post and clicking on the
 	#reject/accept button
 	## A prompt (“Your post has been successfully approved and published.“ or “Your post has unfortunately been rejected because it doesn’t conform to the platform rules”) should be shown the user.
-	@TEST_COMMUNITY-1049 @REQ_COMMUNITY-898 @TESTSET_COMMUNITY-1033
-	Scenario: Approve or reject automation
-		Given Admin logs in(admin)
-		And goes to blog module(admin)
-		And Admin clicks on approve(admin)
-		Then User should receive an approval prompt(admin)
-		And if Admin clicks on reject(admin))
-		Then User should receive a rejection prompt(admin)
+	@TEST_COMMUNITY-1074 @REQ_COMMUNITY-898 @TESTSET_COMMUNITY-1033
+	Scenario: Blog Post Disapproval Automation
+		Given Admin logs in(disapprove admin)
+		And goes to blog module(disapprove admin)
+		And Admin clicks on disapprove(disapprove admin) 

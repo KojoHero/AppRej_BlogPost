@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("F:/ApproveReject/AppRej/src/test/java/AppRej/1_COMMUNITY-3.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("F:/ApproveReject/AppRej/src/test/java/AppRej/approve.feature");
 formatter.feature({
   "line": 3,
   "name": "Blog",
@@ -17,7 +17,11 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 14144900100,
+  "duration": 8866888600,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 8516130600,
   "status": "passed"
 });
 formatter.scenario({
@@ -91,47 +95,33 @@ formatter.step({
   "name": "Admin clicks on approve(admin)",
   "keyword": "And "
 });
-formatter.step({
-  "line": 18,
-  "name": "User should receive an approval prompt(admin)",
-  "keyword": "Then "
+formatter.match({
+  "location": "Approve_steps.admin_logs_in_admin()"
 });
-formatter.step({
-  "line": 19,
-  "name": "if Admin clicks on reject(admin))",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 20,
-  "name": "User should receive a rejection prompt(admin)",
-  "keyword": "Then "
-});
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 8036775900,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "Approve_steps.goes_to_blog_module_admin()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 14178401900,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "Approve_steps.admin_clicks_on_approve_admin()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+  "duration": 10170254300,
+  "status": "passed"
 });
 formatter.after({
-  "duration": 692749300,
+  "duration": 562927900,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 623734600,
   "status": "passed"
 });
 });

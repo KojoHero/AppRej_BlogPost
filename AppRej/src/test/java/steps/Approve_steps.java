@@ -11,7 +11,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
-public class AppRej_steps {
+public class Approve_steps {
 	
 	WebDriver driver = new ChromeDriver();
 
@@ -28,7 +28,9 @@ public class AppRej_steps {
 
 	@After()
 	public void end() {
+		driver.close();
 		driver.quit();
+		
 	}
 
 	
@@ -36,55 +38,36 @@ public class AppRej_steps {
 	public void admin_logs_in_admin() throws Throwable {
 		//Admin login
 		driver.get("http://20.52.44.20/auth/login");
-		driver.findElement(By.id("InputEmail")).sendKeys("amalitech@testing.com");
-		driver.findElement(By.id("InputPassword1")).sendKeys("Kankama1");
+		driver.findElement(By.id("InputEmail")).sendKeys("alhaji@gmail.com");
+		driver.findElement(By.id("InputPassword1")).sendKeys("Amalitech@2020");
 		driver.findElement(By.id("signin_button")).click();
 	}
 
 	@Given("^goes to blog module\\(admin\\)$")
 	public void goes_to_blog_module_admin() throws Throwable {
 		//click on blog in admin dashboard
-		Thread.sleep(2000);
-		driver.findElement(By.id("")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.id("openicon")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"mySidenav\"]/div[7]/a/li")).click();	
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//*[@id=\"bloglist\"]/a[3]/li")).click();	
 	}
 
 	@Given("^Admin clicks on approve\\(admin\\)$")
 	public void admin_clicks_on_approve_admin() throws Throwable {
-		//admin clicks to approve
+		//admin clicks to approve	
 		Thread.sleep(2000);
-		driver.findElement(By.id("")).click();
+		driver.findElement(By.xpath("//*[@id=\"main\"]/div[2]/div[2]/div/div[2]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]/div[2]/div[1]/button")).click();
+	
+		//assertion
+		Thread.sleep(3000);
+		String prompt = "Blog Post approved successfully";
+		String message  = driver.findElement(By.xpath("//*[@id=\"myModal\"]/div[2]/div/p")).getText();
+		Assert.assertEquals(message, prompt);
+	
 	}
-
-	@Then("^User should receive an approval prompt\\(admin\\)$")
-	public void user_should_receive_an_approval_prompt_admin() throws Throwable {
-		//assert
-	    String prompt = "";
-	    String notification = driver.findElement(By.id("")).getText();
-	    
-	    Assert.assertEquals(prompt, notification);
-	    
-	}
-
-	@Then("^if Admin clicks on reject\\(admin\\)\\)$")
-	public void if_Admin_clicks_on_reject_admin() throws Throwable {
-		//Going back to the blogs page
-		Thread.sleep(2000);
-		driver.findElement(By.id("")).click();
-		
-		//admin rejects a post
-		Thread.sleep(2000);
-		driver.findElement(By.id("")).click();
-	}
-
-	@Then("^User should receive a rejection prompt\\(admin\\)$")
-	public void user_should_receive_a_rejection_prompt_admin() throws Throwable {
-		//assert
-	    String prompt = "";
-	    String notification = driver.findElement(By.id("")).getText();
-	    
-	    Assert.assertEquals(prompt, notification);
-	}
-
-
 
 }
